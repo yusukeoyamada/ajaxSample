@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="blog-text">
+    <p><strong>タイトル</strong></p>
+    <p><%= @blog.title %></p>
+    <p><strong>内容</strong></p>
+    <p><%= @blog.content %></p>
+  </div>
+  <p>コメント一覧</p>
+  <div id="comments_area">
+  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
 
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+  <%= link_to '編集', edit_blog_path(@blog) %> |
+  <%= link_to '戻る', blogs_path %>
+</div>

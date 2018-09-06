@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :blogs
+  #投稿関係
+  resources :blogs do
+    resources :comments
+  end
 
   #ログイン関係
   resources :sessions, only: [:new, :create, :destroy]
