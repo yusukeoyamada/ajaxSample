@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user_infomation, only: [:show, :edit, :update]
 
   def index
+    @users = User.all
   end
 
   def new
