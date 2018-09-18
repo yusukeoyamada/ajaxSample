@@ -1,0 +1,8 @@
+<p><%= notice %><%= alert %></p>
+<% if sns_user_signed_in? %>
+  <%= link_to "ログアウト", destroy_sns_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Googleでサインアップしてね', sns_user_google_omniauth_authorize_path %>
+  <%= link_to 'Facebookでサインアップしてね', sns_user_facebook_omniauth_authorize_path %>
+  <%= link_to 'GitHubでサインアップしてね', sns_user_github_omniauth_authorize_path %>
+<% end %>

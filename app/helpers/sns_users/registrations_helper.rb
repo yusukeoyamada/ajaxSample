@@ -1,0 +1,2 @@
+module SnsUsers::RegistrationsHelper
+end
